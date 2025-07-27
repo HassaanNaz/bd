@@ -1,0 +1,13 @@
+{% for message in messages %}
+    <div class="message-container">
+        <div class="message-sender">
+            {% if message.friendship %}
+                {{message.friendship.user.username}}
+            {% else %}
+                {{message.sender.username}}
+            {% endif %}
+        </div>
+        <div class="message-timestamp">{{message.timestamp}}</div>
+        <div class="message-text">{{message.message}}</div>
+    </div>
+{% endfor %}

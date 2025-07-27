@@ -1,0 +1,46 @@
+{% extends "app_layout.html" %}
+
+{% block body %}
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            load_group_messages();
+            setInterval(() => {load_group_messages()}, 500)
+
+            document.addEventListener("keyup", function(event) {
+                if (event.key == "Enter") {
+                    send_group_message();
+                }
+            });
+        });
+    </script>
+    <div class="group-chat-main-container">
+        <div class="dm-top-bar">
+            <div class="group-chat-top-bar-name-container" value="{{group_id}}">
+                <input maxlength="12" type="text" class="group-chat-top-bar-name" value="{{name}}">
+                <div class="group-chat-top-bar-name-hidden" aria-hidden="true">{{name}}</div>
+            </div>
+            <a class="group-chat-top-bar-add-friends add">Add Friends</a>
+            <a class="group-chat-top-bar-side-menu" id="group-chat-side-bar-toggle">&lt&lt</a>
+        </div>
+        <div class="dm-message-container"id="group-chat-message-container"></div>
+        <div class="text-bar-container">
+            <input class="text-bar" placeholder="Message {{name}}" type="text" autofocus></input>
+        </div>
+    </div>
+    <div class="group-chat-side-bar-wrapper">
+        <div class="group-chat-bar">
+            <script>
+                var group_id = document.querySelector(".group-chat-top-bar-name-container");
+                load_users(group_id.getAttribute("value"));
+                setInterval(() => {load_users(group_id.getAttribute("value"))} , 1000);
+            </script>
+        </div>
+    </div>
+    <div class="add-friends-pop-up-container">
+        <div class="add-friends-pop-up">
+            <div class="add-friends-msg"></div>
+            <input class="add add-friends-input" placeholder="Type Username">
+            <button class="add button add-friends-submit">Add Friend</button>
+        </div>
+    </div>
+{% endblock %}

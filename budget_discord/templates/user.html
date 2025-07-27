@@ -1,0 +1,15 @@
+{% if error %}
+    <div class="user-outer-container">
+        <div class="user-inner-container">
+            <div class="user-error-message">User has been deleted</div>
+        </div>
+    </div>
+{% endif %}
+<div class="user-outer-container">
+    <div class="user-inner-container">
+        <form action="/app/dms/{{friendship_id}}" method="POST">
+            {% csrf_token %}
+            <button class="user-message">Message @{{friend}}</button>
+        </form>
+    </div>
+</div>

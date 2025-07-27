@@ -1,0 +1,7 @@
+{% for member in members %}
+    <div class="member-outer-container">
+        <div class="member-inner-container">
+            <div id="m{{member.member_id}}" class="member-name {%if member.is_online%}online{%else%}offline{%endif%}">{{member.username}}</div>
+        </div>
+    </div>
+{% endfor %}

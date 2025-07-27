@@ -1,0 +1,32 @@
+{% extends "app_layout.html" %}
+
+{% block body %}
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            is_online("{{friend_id}}"); 
+            setInterval(() => {is_online("{{friend_id}}")}, 500);
+
+            load_dm_messages();
+            setInterval(() => {load_dm_messages()}, 500)
+
+            document.addEventListener("keyup", function(event) {
+                if (event.key == "Enter") {
+                    send_message();
+                }
+            });
+        });
+    </script>
+    <div class="main-container">
+        <div class="dm-top-bar">
+            <a class="dm-top-bar-friend-name" value="{{friendship_id}}">@{{friend}}</a>
+            <a class="dm-top-bar-friend-status"></a>
+            <!-- <a class="dm-top-bar-friend-action">Pinned Messages</a>
+            <a class="dm-top-bar-friend-action">Video Call</a>
+            <a class="dm-top-bar-friend-action">Call</a> -->
+        </div>
+        <div class="dm-message-container" id="dm-message-container"></div>
+        <div class="text-bar-container">
+            <input class="text-bar" placeholder="Message @{{friend}}" type="text" autofocus></input>
+        </div>
+    </div>
+{% endblock %}

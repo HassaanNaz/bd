@@ -1,0 +1,16 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Budget Discord</title>
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
+        <link href="{% static 'style.css' %}" rel="stylesheet">
+        <link href="{% static 'pics/bd-icon.png' %}" rel="icon">
+        <script src="{% static 'script.js' %}"></script>
+    </head>
+    <body>
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>

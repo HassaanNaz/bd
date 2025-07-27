@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <div class="login-form-container">
+        <div class="login-title">Log in</div>
+        {% if msg %}
+            <div class="login-error-msg">{{msg}}</div>
+        {% endif %}
+        <form action="/login" method="POST">
+            {% csrf_token %}
+            <div class="login-form-input-container">
+                <input class="login-form-input" autocomplete="off" autofocus name="email" type="text" placeholder="Email">
+            </div>
+            <div class="login-form-input-container">
+                <input class="login-form-input" autocomplete="off" name="password" type="password" placeholder="Password">
+            </div>
+            <div class="login-form-submit-btn-container">
+                <button class="login-form-submit-btn">Log In</button>
+            </div>
+            <a class="login-form-make-account" href="/register">Don't have an account?</a>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "app_layout.html" %}
+
+{% block body %}
+    <div class="main-container">
+        <div class="friends-nav-bar">
+            <a class="friends-nav-bar-a" id="view_friends">View Friends</a>
+            <a class="friends-nav-bar-a" id="add_friends">Add</a>
+            <a class="friends-nav-bar-a" id="requests">Friend Requests</a>
+        </div>
+        <div class="friends-nav-bar-burger">
+            <div class="burger-line"></div>
+            <div class="burger-line"></div>
+            <div class="burger-line"></div>
+        </div>
+        <div class="friends-nav-bar-mobile">
+            <div class="friends-nav-bar-mobile-a" id="view-friends-mobile">View Friends</div>
+            <div class="friends-nav-bar-mobile-a" id="add-friends-mobile">Add</div>
+            <div class="friends-nav-bar-mobile-a" id="requests-mobile">Friend Requests</div>
+        </div>
+        <div class="friends-view" id="friends-view">
+            <script>get_friends();</script>
+        </div>
+        <div class="friends-add" id="friends-add">
+            {% if msg %}
+                <script>document.addEventListener("DOMContentLoaded", function() {document.querySelector("#add_friends").click()})</script>
+                <div class="friend-error-msg">{{msg}}</div>
+            {% endif %}
+            <form action="/send_request" method="POST">
+                {% csrf_token %}
+                <div class="friend-request-form">
+                    <input class="friend-request-form-input" type="text" placeholder="Friend's ID" name="friend_id" autocomplete="off" autofocus>
+                    <button class="button btn-friend">Send</button>
+                </div> 
+            </form>
+        </div>
+        <div class="friend-requests" id="friend-requests">
+            <script>get_requests();</script>
+        </div>
+
+    </div>
+{% endblock %}

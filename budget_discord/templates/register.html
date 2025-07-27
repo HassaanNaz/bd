@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <div class="login-form-container">
+        <div class="login-title">Create Account</div>
+        {% if msg %}
+            <div class="login-error-msg">{{msg}}</div>
+        {% endif %}
+        <form action="/register" method="POST">
+            {% csrf_token %}
+            <div class="login-form-input-container">
+                <input class="login-form-input" autocomplete="off" autofocus name="username" type="text" placeholder="Username">
+            </div>
+            <div class="login-form-input-container">
+                <input class="login-form-input" autocomplete="off" name="email" type="text" placeholder="Email">
+            </div>
+            <div class="login-form-input-container">
+                <input class="login-form-input" autocomplete="off" name="password" type="password" placeholder="Password">
+            </div>
+            <div class="login-form-input-container">
+                <input class="login-form-input" autocomplete="off" name="confirmation" type="password" placeholder="Confirm password">
+            </div>
+            <div class="login-form-submit-btn-container">
+                <button class="login-form-submit-btn">Register</button>
+            </div>
+            <a class="login-form-make-account" href="/">Have an account?</a>
+        </form>
+    </div>
+{% endblock %}

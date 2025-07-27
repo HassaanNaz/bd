@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Budget Discord</title>
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
+        <link href="{% static 'style.css' %}" rel="stylesheet">
+        <link href="{% static 'pics/bd-icon.png' %}" rel="icon">
+        <script src="{% static 'script.js' %}"></script>
+    </head>
+    <body>
+        <div class="top-nav-wrapper">
+            <div class="top-nav">
+                <a class="top-nav-a" id="side-bar-toggle">&gt&gt</a>
+                <a class="top-nav-a" href="/app/friends">Friends</a>
+                <a class="top-nav-a" id="settings">Settings</a>
+            </div>
+        </div>
+        <div class="side-nav-wrapper">
+            <div class="side-nav">
+                <form action="/app/group_chat/0" method="POST" class="make-group-chat-form">
+                    {% csrf_token %}
+                    <button class="make-group-chat" type="submit">New Chat+</button>
+                </form>
+                <div class="group-chats" id="group-chats"></div>
+                <script>get_group_chats()</script>
+            </div>
+        </div>
+        {% block body %}
+        {% endblock %}
+        <div class="settings-outer-container" id="settings-menu">
+            <div class="settings-inner-container">
+                <div class="settings-title">Settings</div>
+                <div class="settings-close-button">X</div>
+                <div class="settings-container">
+                    <div class="settings-description">Your ID. Tell others so they may friend you.</div>
+                    <div class="settings-action">
+                        <button class="button button-logout">{{request.user.id}}</button>
+                    </div>
+                </div>
+
+                <div class="settings-container">
+                    <div class="settings-description">Logout. You will be redirected to the login page.</div>
+                    <div class="settings-action">
+                        <form action="/logout" method="POST">
+                            {% csrf_token %}
+                            <button class="button button-logout" type="submit">Logout</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,1942 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px 0px;
+    background-color: #050A30;
+}
+input:focus {
+    outline: none;
+}
+button:focus {
+    outline: none;
+}
+@media screen and (max-width: 600px) {
+    .button {
+        background: none;
+        border: 2px solid white;
+        border-radius: 5px;
+        color: white;
+        font-size: 24px;
+        transition: all 0.5s;
+    }
+    .button:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    .login-form-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50%;
+    }
+    .login-title {
+        font-family: Calibri;
+        font-size: 32px;
+        color: #7EC8E3;
+        margin-bottom: 30px;
+        border-bottom: 10px solid #000c66;
+        width: 50%;
+        float: left;
+        padding-bottom: 10px;
+    }
+    .login-error-msg {
+        font-family: Calibri;
+        color: pink;
+        margin-bottom: 15px;
+        float: left;
+    }
+    .login-form-input-container {
+        border-bottom: 5px solid white;
+        margin-bottom: 30px;
+        width: 100%;
+        overflow: hidden;
+        font-size: 40px;
+        color: white;
+    }
+    .login-form-input {
+        background: none;
+        border: none;
+        color: #7EC8E3; 
+        font-size: 18px;
+    }
+    .login-form-input:focus {
+        outline: none;
+    }
+    ::placeholder {
+        color: #7EC8E3;
+    }
+    .login-form-submit-btn {
+        width: 100%;
+        font-size: 26px;
+        background: none;
+        border: 2px solid #4caf50;
+        color: white;
+        cursor: pointer;
+    }
+    .login-form-submit-button:focus {
+        outline: none;
+    }
+    .login-form-make-account {
+        font-family: Calibri;
+        color: #7EC8E3;
+        margin-top: 15px;
+        float: left;
+    }
+    .title {
+        color: white;
+        font-family: Calibri;
+        font-size: 24px;
+        position: absolute;
+        left: 10px;
+    }
+    .top-nav-wrapper {
+        overflow: hidden;
+    }
+    .top-nav {
+        font-family: Calibri;
+        float: left;
+        width: 100%;
+        overflow: hidden;
+        padding: 5px 0px;
+        border-bottom: 2px solid #6a92a0;
+    }
+    .top-nav-a {
+        margin: 25px;
+        color: white;
+        font-size: 22px;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .top-nav-a:first-child {
+        margin: 0px 15px;
+        display: inline-block;
+        transition: all 1s ease-in-out;
+    }
+    .top-nav-a.openned {
+        -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
+        transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
+    .side-nav-wrapper {
+        z-index: 15;
+        position: absolute;
+        height: calc(100% - 38.4px);
+        width: 100%;
+        background-color: #7EC8E3;
+        transition: all 1s ease-in-out;
+        transform: translateX(-100%);
+    }
+    .openned {
+        transform: translateX(0%);
+    }
+    .side-nav {
+        height: 100%;
+        font-family: Calibri;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        overflow: hidden;
+    }
+    .make-group-chat {
+        color: white;
+        font-size: 28px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        border-bottom: 2px solid #6a92a0;
+    }
+    .group-chats {
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: 100%;
+        width: 100%;
+    }
+    #group-chat-message-container::-webkit-scrollbar 
+    {
+      width: 7px;
+      transition: all 0.5s;
+    }
+    #group-chat-message-container::-webkit-scrollbar-track 
+    {
+      background: #6a92a0;
+      border-radius: 5px;
+    }
+    #group-chat-message-container::-webkit-scrollbar-thumb 
+    {
+      background: #7EC8E3;
+      border-radius: 5px;
+    }
+    .group-chat-container {
+        width: 100%;
+        padding: 10px 5px;
+    }
+    .group-chat {
+        width: 100%;
+        font-size: 26px;
+        color: white;
+        padding: 15px 10px;
+        cursor: pointer;
+        background: none;
+        border: none;
+    }
+    .group-chat-top-bar-name-container {
+        float: left;
+        margin: 0px 25px;
+        width: max-content;
+        height: max-content;
+        position: relative;
+    }
+    .group-chat-top-bar-name {
+        color: white;
+        font-size: 20px;
+        background: none;
+        border: none;
+        padding: 0px;
+        height: 24px;
+        font-family: Calibri;  
+        transition: all 0.5s;
+        border-radius: 5px;
+        width: 100%;
+        position: absolute;
+    }
+    .group-chat-top-bar-name-hidden {
+        color: white;
+        font-size: 20px;
+        height: 24px;
+        font-family: Calibri;
+        min-width: 10px;
+        visibility: hidden;
+    }
+    .group-chat-top-bar-name:hover {
+        box-shadow: 0 0 0 2px white;
+    }
+    .group-chat-top-bar-name:focus {
+        box-shadow: 0 0 0 2px white;
+        background: #7EC8E3;
+    }
+    .group-chat-top-bar-add-friends {
+        float: left;
+        margin: 0px 5px;
+        color: white;
+        font-size: 20px;
+        cursor: pointer; 
+    }
+    .group-chat-top-bar-side-menu {
+        z-index: 14;
+        right: 10px;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        position: absolute;
+        transition: all 1s ease-in-out;
+    }
+    .group-chat-top-bar-side-menu.openned {
+        -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
+        transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
+    .group-chat-side-bar-wrapper.openned {
+        transform: translateX(0%);
+    }
+    .group-chat-side-bar-wrapper {
+        transform: translateX(100%);
+        position: absolute;
+        height: calc(100% - 40px);
+        width: 100%;
+        background-color: #7EC8E3;
+        transition: all 1s ease-in-out;
+    }
+    .group-chat-side-bar {
+        height: calc(100% - 40px);
+        width: 100%;
+        position: absolute;
+        font-family: Calibri;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+    .add-friends-pop-up-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 75%;
+        display: none;
+        background-color: #050A30;
+        border-radius: 25px;
+        box-shadow: 0 0 0 5px white;
+        padding: 25px;
+    }
+    .add-friends-pop-up {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column wrap;
+    }
+    .add-friends-msg {
+        font-family: Calibri;
+        color: pink;
+        margin-bottom: 15px;
+        float: left;    
+    }
+    .add-friends-input {
+        text-align: center;
+        width: 75%;
+        background: none;
+        border: 5px solid white;
+        color: #7EC8E3;
+        font-size: 14px;
+        padding: 15px;
+        border-radius: 25px;
+    }
+    .add-friends-submit {
+        font-size: 14px;
+        border: 5px solid white;
+        margin: 15px;
+    }
+    .settings-outer-container {
+        z-index: 15;
+        overflow: hidden;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 100%;
+        width: 100%;
+        background-color: #050A30;
+        clip-path: circle(0px at 90% -10%);
+        -webkit-clip-path: circle(10px at 50% -10%);
+        transition: all 1s ease-in-out;
+    }
+    .settings-inner-container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        font-family: Calibri;
+    }
+    .settings-header {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .settings-close-button {
+        border: 2px solid whitesmoke;
+        border-radius: 50%;
+        color: white;
+        font-size: 28px;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        right: 15px;
+        top: 10px;
+        transition: all 1s ease;
+    }
+    .settings-close-button:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    .settings-title {
+        color: white;
+        font-size: 32px;
+        font-weight: 400;
+        padding-bottom: 30px;
+    }
+    .settings-container {
+        border-top: 1px solid #6a92a0;
+        border-bottom: 1px solid #6a92a0;
+        height: 100px;
+        width: 75%;
+        display: flex;
+        flex-flow: row wrap;
+        padding: 0px 15px;
+        justify-content: center;
+        align-items: center;
+    }
+    .settings-description {
+        font-size: 18px;
+        color: #62a2ba;
+    }
+    .settings-action {
+        font-size: 18px;
+    }
+    .main-container {
+        position: absolute;
+        width: 100%;
+        height: calc(100% - 40px);
+    }
+    .group-chat-main-container {
+        position: absolute;
+        width: calc(100%);
+        height: calc(100% - 40px);
+    }
+    .friends-nav-bar {
+        display: none;
+    }
+    .friends-nav-bar-a {
+        display: none; 
+    }
+    .friends-error-msg {
+        font-family: Calibri;
+        color: pink;
+        margin-top: 25px;
+        float: left;
+        width: 100%;
+    }
+    .friends-nav-bar-burger {
+        width: 30px;
+        right: 10px;
+        position: absolute;
+        z-index: 10;
+    }
+    .burger-line {
+        width: 100%;
+        height: 2px;
+        background-color: white;
+        margin: 10px 0px;
+    }
+    .friends-nav-bar-mobile {
+        background-color: #7EC8E3;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        clip-path: circle(0px at 90% -10%);
+        -webkit-clip-path: circle(10px at 90% -10%);
+        transition: all 1s ease-out;
+    }
+    .open {
+        clip-path: circle(800px);
+        -webkit-clip-path: circle(1000px);
+    }
+    .friends-nav-bar-mobile-a {
+        font-family: Calibri;
+        font-size: 32px;
+        margin: 25px 0px;
+        color: white;
+        pointer-events: all;
+    }
+    .friends-view {
+        margin-top: 45px;
+        padding: 25px; 
+        width: calc(100% - 50px);
+        height: calc(100% - 95px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .friend {
+        padding: 25px;
+        border-top: 1px solid whitesmoke;
+        border-bottom: 1px solid whitesmoke;
+        width: 80%;
+        display: flex;
+        align-items: center;
+    }
+    .friend-name {
+        font-family: Calibri;
+        color: white;
+        font-size: 28px;
+    }
+    .friends-add {
+        display: none;
+        margin-top: 40px;
+        padding: 25px; 
+        width: calc(100% - 50px);
+        height: calc(100% - 95px);
+    }
+    .friend-requests {
+        display: none;
+        padding: 25px; 
+        margin-top: 40px;
+        width: calc(100% - 50px);
+        height: calc(100% - 95px);
+    }
+    .friend-request-form-input {
+        width: 80%;
+        background: none;
+        border: 5px solid white;
+        color: #7EC8E3;
+        font-size: 28px;
+        font-weight: 600;
+        padding: 15px;
+        border-radius: 25px;
+    }
+    .friend-error-msg {
+        font-family: Calibri;
+        color: pink;
+        margin-top: 25;
+        float: left;
+        width: 100%;
+    }
+    .btn-friend {
+        font-size: 28px;
+        font-weight: 600;
+        border: 5px solid white;
+        margin: 15px;
+    }
+    .request {
+        border-top: 1px solid #6a92a0;
+        border-bottom: 1px solid #6a92a0;
+        height: 100px;
+        width: 80%;
+        display: flex;
+        flex-flow: row wrap;
+        padding: 0px 15px;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .request-user {
+        width: 100%;
+        color: white;
+        text-align: center;
+        font-size: 28px;
+        font-family: Calibri;
+    }
+    .request-accept {
+        background: none;
+        border: 2px solid lightgreen;
+        border-radius: 5px;
+        color: lightgreen;
+        font-size: 24px;
+        transition: all 0.5s;
+    }
+    .request-accept:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+    .request-decline {
+        background: none;
+        border: 2px solid red;
+        border-radius: 5px;
+        color: red;
+        font-size: 24px;
+        transition: all 0.5s;
+    }
+    .request-decline:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+    .user-outer-container {
+        z-index: 1;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: #7EC8E3;
+        border-radius: 25px;
+    }
+    .user-inner-container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-flow: column wrap;
+        font-family: Calibri;
+        font-size: 28px;
+        color: white;
+    }
+    .user-username {
+        font-weight: 600;
+    }
+    .user-message {
+        background: none;
+        border: 2px solid white;
+        border-radius: 5px;
+        color: white;
+        font-size: 24px;
+        transition: all 0.5s;
+    }
+    .user-message:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    .dm-top-bar {
+        font-family: Calibri;
+        float: left;
+        width: 100%;
+        overflow: hidden;
+        padding: 5px 0px;
+    }
+    .dm-top-bar-friend-name {
+        float: left;
+        margin: 0px 25px;
+        color: white;
+        font-size: 20px;
+        cursor: pointer; 
+    }
+    .dm-top-bar-friend-status {
+        float: left;
+        margin: 0px 25px;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    .dm-top-bar-friend-action {
+        float: right;
+        margin: 0px 25px;
+        color: white;
+        font-size: 20px;
+        cursor: pointer; 
+    }
+    .dm-message-container {
+        width: calc(100%);
+        height: calc(100% - 118px);
+        margin-top: 34.8px;
+        margin-bottom: 78px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .text-bar-container
+    {
+        position: absolute;
+        bottom: 0;
+        width: 80%;
+        margin: 0px 0px 20px 20px;
+    }
+    .text-bar
+    {
+      position: relative;
+      width: 100%;
+      height: 50px;
+      background-color: #050A30;
+      border: 3px solid #7EC8E3;
+      border-radius: 8px;
+      font-size: 20px;
+      color: #7EC8E3;
+    }
+    .text-bar:focus
+    {
+      outline: none;
+    }
+    .message-container {
+        width: calc(100% - 40px);
+        font-family: Calibri;
+        padding: 20px;
+    }
+    .message-sender {
+        color: white;
+        font-weight: 450;
+        font-size: 24px; 
+        display: inline;
+    }
+    .message-timestamp {
+        color: grey;
+        display: inline;
+        font-size: 12px;
+    }
+    .message-text {
+        color: #7EC8E3;
+        display: block;
+    }
+    #dm-message-container::-webkit-scrollbar 
+    {
+      width: 7px;
+      transition: all 0.5s;
+    }
+    #dm-message-container::-webkit-scrollbar-track 
+    {
+      background: #6a92a0;
+      border-radius: 5px;
+    }
+    #dm-message-container::-webkit-scrollbar-thumb 
+    {
+      background: #7EC8E3;
+      border-radius: 5px;
+    }
+    .member-outer-container {
+        width: 100%;
+        height: 80px;
+        border-bottom: 1px solid #6a92a0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    .member-inner-container {
+        padding: 25px 15px;
+    }
+    .member-name {
+        font-family: Calibri;
+        font-size: 28px;
+    }
+    .online {
+        color: white;
+    }
+    .offline {
+        color: #6a92a0;
+    }
+}
+@media screen and (max-width: 923px) and (min-width: 600px) {
+    .button {
+        background: none;
+        border: 2px solid white;
+        border-radius: 5px;
+        color: white;
+        font-size: 24px;
+        transition: all 0.5s;
+    }
+    .button:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    .login-form-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+    }
+    .login-title {
+        font-family: Calibri;
+        font-size: 32px;
+        color: #7EC8E3;
+        margin-bottom: 30px;
+        border-bottom: 10px solid #000c66;
+        width: 50%;
+        float: left;
+        padding-bottom: 10px;
+    }
+    .login-error-msg {
+        font-family: Calibri;
+        color: pink;
+        margin-bottom: 15px;
+        float: left;
+    }
+    .login-form-input-container {
+        border-bottom: 5px solid white;
+        margin-bottom: 30px;
+        width: 100%;
+        overflow: hidden;
+        font-size: 40px;
+        color: white;
+    }
+    .login-form-input {
+        background: none;
+        border: none;
+        color: #7EC8E3; 
+        font-size: 18px;
+    }
+    .login-form-input:focus {
+        outline: none;
+    }
+    ::placeholder {
+        color: #7EC8E3;
+    }
+    .login-form-submit-btn {
+        width: 100%;
+        font-size: 26px;
+        background: none;
+        border: 2px solid #4caf50;
+        color: white;
+        cursor: pointer;
+    }
+    .login-form-submit-button:focus {
+        outline: none;
+    }
+    .login-form-make-account {
+        font-family: Calibri;
+        color: #7EC8E3;
+        margin-top: 15px;
+        float: left;
+    }
+    .title {
+        color: white;
+        font-family: Calibri;
+        font-size: 24px;
+        position: absolute;
+        left: 10px;
+    }
+    .top-nav-wrapper {
+        overflow: hidden;
+    }
+    .top-nav {
+        font-family: Calibri;
+        float: left;
+        width: 100%;
+        overflow: hidden;
+        padding: 5px 0px;
+        border-bottom: 2px solid #6a92a0;
+    }
+    .top-nav-a {
+        margin: 25px;
+        color: white;
+        font-size: 22px;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .top-nav-a:first-child {
+        margin: 0px 15px;
+        display: inline-block;
+        transition: all 1s ease-in-out;
+    }
+    .top-nav-a.openned {
+        -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
+        transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
+    .side-nav-wrapper {
+        z-index: 15;
+        position: absolute;
+        height: calc(100% - 38.4px);
+        width: 100%;
+        background-color: #7EC8E3;
+        transition: all 1s ease-in-out;
+        transform: translateX(-100%);
+    }
+    .openned {
+        transform: translateX(0%);
+    }
+    .side-nav {
+        height: 100%;
+        font-family: Calibri;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        overflow: hidden;
+    }
+    .make-group-chat {
+        color: white;
+        font-size: 28px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        border-bottom: 2px solid #6a92a0;
+    }
+    .group-chats {
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: 100%;
+        width: 100%;
+    }
+    #group-chat-message-container::-webkit-scrollbar 
+    {
+      width: 7px;
+      transition: all 0.5s;
+    }
+    #group-chat-message-container::-webkit-scrollbar-track 
+    {
+      background: #6a92a0;
+      border-radius: 5px;
+    }
+    #group-chat-message-container::-webkit-scrollbar-thumb 
+    {
+      background: #7EC8E3;
+      border-radius: 5px;
+    }
+    .group-chat-container {
+        width: 100%;
+        padding: 10px 5px;
+    }
+    .group-chat {
+        width: 100%;
+        font-size: 26px;
+        color: white;
+        padding: 15px 10px;
+        cursor: pointer;
+        background: none;
+        border: none;
+    }
+    .group-chat-top-bar-name-container {
+        float: left;
+        margin: 0px 25px;
+        width: max-content;
+        height: max-content;
+        position: relative;
+    }
+    .group-chat-top-bar-name {
+        color: white;
+        font-size: 20px;
+        background: none;
+        border: none;
+        padding: 0px;
+        height: 24px;
+        font-family: Calibri;  
+        transition: all 0.5s;
+        border-radius: 5px;
+        width: 100%;
+        position: absolute;
+    }
+    .group-chat-top-bar-name-hidden {
+        color: white;
+        font-size: 20px;
+        height: 24px;
+        font-family: Calibri;
+        min-width: 10px;
+        visibility: hidden;
+    }
+    .group-chat-top-bar-name:hover {
+        box-shadow: 0 0 0 2px white;
+    }
+    .group-chat-top-bar-name:focus {
+        box-shadow: 0 0 0 2px white;
+        background: #7EC8E3;
+    }
+    .group-chat-top-bar-add-friends {
+        float: left;
+        margin: 0px 5px;
+        color: white;
+        font-size: 20px;
+        cursor: pointer; 
+    }
+    .group-chat-top-bar-side-menu {
+        z-index: 14;
+        right: 10px;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        position: absolute;
+        transition: all 1s ease-in-out;
+    }
+    .group-chat-top-bar-side-menu.openned {
+        -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
+        transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
+    .group-chat-side-bar-wrapper.openned {
+        transform: translateX(0%);
+    }
+    .group-chat-side-bar-wrapper {
+        transform: translateX(100%);
+        position: absolute;
+        height: calc(100% - 40px);
+        width: 100%;
+        background-color: #7EC8E3;
+        transition: all 1s ease-in-out;
+    }
+    .group-chat-side-bar {
+        height: calc(100% - 40px);
+        width: 100%;
+        position: absolute;
+        font-family: Calibri;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+    .add-friends-pop-up-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 75%;
+        display: none;
+        background-color: #050A30;
+        border-radius: 25px;
+        box-shadow: 0 0 0 5px white;
+        padding: 25px;
+    }
+    .add-friends-pop-up {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column wrap;
+    }
+    .add-friends-msg {
+        font-family: Calibri;
+        color: pink;
+        margin-bottom: 15px;
+        float: left;    
+    }
+    .add-friends-input {
+        text-align: center;
+        width: 75%;
+        background: none;
+        border: 5px solid white;
+        color: #7EC8E3;
+        font-size: 14px;
+        padding: 15px;
+        border-radius: 25px;
+    }
+    .add-friends-submit {
+        font-size: 14px;
+        border: 5px solid white;
+        margin: 15px;
+    }
+    .settings-outer-container {
+        z-index: 15;
+        overflow: hidden;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 100%;
+        width: 100%;
+        background-color: #050A30;
+        clip-path: circle(0px at 90% -10%);
+        -webkit-clip-path: circle(10px at 50% -10%);
+        transition: all 1s ease-in-out;
+    }
+    .settings-inner-container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        font-family: Calibri;
+    }
+    .settings-header {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .settings-close-button {
+        border: 2px solid whitesmoke;
+        border-radius: 50%;
+        color: white;
+        font-size: 28px;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        right: 15px;
+        top: 10px;
+        transition: all 1s ease;
+    }
+    .settings-close-button:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    .settings-title {
+        color: white;
+        font-size: 32px;
+        font-weight: 400;
+        padding-bottom: 30px;
+    }
+    .settings-container {
+        border-top: 1px solid #6a92a0;
+        border-bottom: 1px solid #6a92a0;
+        height: 100px;
+        width: 75%;
+        display: flex;
+        flex-flow: row wrap;
+        padding: 0px 15px;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .settings-description {
+        font-size: 18px;
+        color: #62a2ba;
+    }
+    .settings-action {
+        font-size: 18px;
+    }
+    .main-container {
+        position: absolute;
+        width: 100%;
+        height: calc(100% - 40px);
+    }
+    .group-chat-main-container {
+        position: absolute;
+        width: calc(100%);
+        height: calc(100% - 40px);
+    }
+    .friends-nav-bar {
+        display: none;
+    }
+    .friends-nav-bar-a {
+        display: none; 
+    }
+    .friends-error-msg {
+        font-family: Calibri;
+        color: pink;
+        margin-top: 25px;
+        float: left;
+        width: 100%;
+    }
+    .friends-nav-bar-burger {
+        width: 30px;
+        right: 10px;
+        position: absolute;
+        z-index: 10;
+    }
+    .burger-line {
+        width: 100%;
+        height: 2px;
+        background-color: white;
+        margin: 10px 0px;
+    }
+    .friends-nav-bar-mobile {
+        background-color: #7EC8E3;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        clip-path: circle(0px at 90% -10%);
+        -webkit-clip-path: circle(10px at 90% -10%);
+        transition: all 1s ease-out;
+    }
+    .open {
+        clip-path: circle(800px);
+        -webkit-clip-path: circle(1000px);
+    }
+    .friends-nav-bar-mobile-a {
+        font-family: Calibri;
+        font-size: 32px;
+        margin: 25px 0px;
+        color: white;
+        pointer-events: all;
+    }
+    .friends-view {
+        margin-top: 45px;
+        padding: 25px; 
+        width: calc(100% - 50px);
+        height: calc(100% - 95px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .friend {
+        padding: 25px;
+        border-top: 1px solid whitesmoke;
+        border-bottom: 1px solid whitesmoke;
+        width: 80%;
+        display: flex;
+        align-items: center;
+    }
+    .friend-name {
+        font-family: Calibri;
+        color: white;
+        font-size: 28px;
+    }
+    .friends-add {
+        display: none;
+        margin-top: 40px;
+        padding: 25px; 
+        width: calc(100% - 50px);
+        height: calc(100% - 90px);
+    }
+    .friend-requests {
+        display: none;
+        padding: 25px; 
+        width: calc(100% - 50px);
+        height: calc(100% - 90px);
+    }
+    .friend-request-form-input {
+        width: 80%;
+        background: none;
+        border: 5px solid white;
+        color: #7EC8E3;
+        font-size: 28px;
+        font-weight: 600;
+        padding: 15px;
+        border-radius: 25px;
+    }
+    .friend-error-msg {
+        font-family: Calibri;
+        color: pink;
+        margin-top: 25;
+        float: left;
+        width: 100%;
+    }
+    .btn-friend {
+        font-size: 28px;
+        font-weight: 600;
+        border: 5px solid white;
+        margin: 15px;
+    }
+    .request {
+        border-top: 1px solid #6a92a0;
+        border-bottom: 1px solid #6a92a0;
+        height: 100px;
+        width: 60%;
+        display: flex;
+        flex-flow: row wrap;
+        padding: 0px 15px;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .request-user {
+        color: white;
+        font-size: 28px;
+        font-family: Calibri;
+    }
+    .request-accept {
+        background: none;
+        border: 2px solid lightgreen;
+        border-radius: 5px;
+        color: lightgreen;
+        font-size: 24px;
+        transition: all 0.5s;
+    }
+    .request-accept:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+    .request-decline {
+        background: none;
+        border: 2px solid red;
+        border-radius: 5px;
+        color: red;
+        font-size: 24px;
+        transition: all 0.5s;
+    }
+    .request-decline:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+    .user-outer-container {
+        z-index: 1;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: #7EC8E3;
+        border-radius: 25px;
+    }
+    .user-inner-container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-flow: column wrap;
+        font-family: Calibri;
+        font-size: 28px;
+        color: white;
+    }
+    .user-username {
+        font-weight: 600;
+    }
+    .user-message {
+        background: none;
+        border: 2px solid white;
+        border-radius: 5px;
+        color: white;
+        font-size: 24px;
+        transition: all 0.5s;
+    }
+    .user-message:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    .dm-top-bar {
+        font-family: Calibri;
+        float: left;
+        width: 100%;
+        overflow: hidden;
+        padding: 5px 0px;
+    }
+    .dm-top-bar-friend-name {
+        float: left;
+        margin: 0px 25px;
+        color: white;
+        font-size: 20px;
+        cursor: pointer; 
+    }
+    .dm-top-bar-friend-status {
+        float: left;
+        margin: 0px 25px;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    .dm-top-bar-friend-action {
+        float: right;
+        margin: 0px 25px;
+        color: white;
+        font-size: 20px;
+        cursor: pointer; 
+    }
+    .dm-message-container {
+        width: calc(100%);
+        height: calc(100% - 118px);
+        margin-top: 34.8px;
+        margin-bottom: 78px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .text-bar-container
+    {
+        position: absolute;
+        bottom: 0;
+        width: 80%;
+        margin: 0px 0px 20px 20px;
+    }
+    .text-bar
+    {
+      position: relative;
+      width: 100%;
+      height: 50px;
+      background-color: #050A30;
+      border: 3px solid #7EC8E3;
+      border-radius: 8px;
+      font-size: 20px;
+      color: #7EC8E3;
+    }
+    .text-bar:focus
+    {
+      outline: none;
+    }
+    .message-container {
+        width: calc(100% - 40px);
+        font-family: Calibri;
+        padding: 20px;
+    }
+    .message-sender {
+        color: white;
+        font-weight: 450;
+        font-size: 24px; 
+        display: inline;
+    }
+    .message-timestamp {
+        color: grey;
+        display: inline;
+        font-size: 12px;
+    }
+    .message-text {
+        color: #7EC8E3;
+        display: block;
+    }
+    #dm-message-container::-webkit-scrollbar 
+    {
+      width: 7px;
+      transition: all 0.5s;
+    }
+    #dm-message-container::-webkit-scrollbar-track 
+    {
+      background: #6a92a0;
+      border-radius: 5px;
+    }
+    #dm-message-container::-webkit-scrollbar-thumb 
+    {
+      background: #7EC8E3;
+      border-radius: 5px;
+    }
+    .member-outer-container {
+        width: 100%;
+        height: 80px;
+        border-bottom: 1px solid #6a92a0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    .member-inner-container {
+        padding: 25px 15px;
+    }
+    .member-name {
+        font-family: Calibri;
+        font-size: 28px;
+    }
+    .online {
+        color: white;
+    }
+    .offline {
+        color: #6a92a0;
+    }
+}
+@media screen and (min-width: 923px) {
+    .button {
+        background: none;
+        border: 2px solid white;
+        border-radius: 5px;
+        color: white;
+        font-size: 24px;
+        transition: all 0.5s;
+    }
+    .button:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    .login-form-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+    }
+    .login-title {
+        font-family: Calibri;
+        font-size: 32px;
+        color: #7EC8E3;
+        margin-bottom: 30px;
+        border-bottom: 10px solid #000c66;
+        width: 50%;
+        float: left;
+        padding-bottom: 10px;
+    }
+    .login-error-msg {
+        font-family: Calibri;
+        color: pink;
+        margin-bottom: 15px;
+        float: left;
+    }
+    .login-form-input-container {
+        border-bottom: 5px solid white;
+        margin-bottom: 30px;
+        width: 100%;
+        overflow: hidden;
+        font-size: 40px;
+        color: white;
+    }
+    .login-form-input {
+        background: none;
+        border: none;
+        color: #7EC8E3; 
+        font-size: 18px;
+    }
+    .login-form-input:focus {
+        outline: none;
+    }
+    ::placeholder {
+        color: #7EC8E3;
+    }
+    .login-form-submit-btn {
+        width: 100%;
+        font-size: 26px;
+        background: none;
+        border: 2px solid #4caf50;
+        color: white;
+        cursor: pointer;
+    }
+    .login-form-submit-button:focus {
+        outline: none;
+    }
+    .login-form-make-account {
+        font-family: Calibri;
+        color: #7EC8E3;
+        margin-top: 15px;
+        float: left;
+    }
+    .title {
+        color: white;
+        font-family: Calibri;
+        font-size: 24px;
+        position: absolute;
+        left: 10px;
+    }
+    .top-nav-wrapper {
+        overflow: hidden;
+    }
+    .top-nav {
+        font-family: Calibri;
+        float: left;
+        width: 100%;
+        overflow: hidden;
+        padding: 5px 0px;
+        border-bottom: 2px solid #6a92a0;
+    }
+    .top-nav-a {
+        margin: 25px;
+        color: white;
+        font-size: 22px;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .top-nav-a:first-child {
+        display: none;
+    }
+    .side-nav-wrapper {
+        position: absolute;
+        height: calc(100% - 40px);
+        width: 15vw;
+        background-color: #7EC8E3;
+    }
+    .side-nav {
+        height: calc(100% - 40px);
+        font-family: Calibri;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        overflow: hidden;
+    }
+    .make-group-chat {
+        color: white;
+        font-size: 28px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        border-bottom: 2px solid #6a92a0;
+    }
+    .group-chats {
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: 100%;
+        width: 100%;
+    }
+    #group-chats::-webkit-scrollbar 
+    {
+      width: 5px;
+      transition: all 0.5s;
+    }
+    #group-chats::-webkit-scrollbar-track 
+    {
+        background: #6a92a0;
+        border-radius: 5px;
+    }
+    #group-chats::-webkit-scrollbar-thumb 
+    {
+        background: white;
+        border-radius: 5px;
+    }
+    .group-chat-container {
+        width: 100%;
+        padding: 10px 5px;
+    }
+    .group-chat {
+        width: 100%;
+        font-size: 26px;
+        color: white;
+        padding: 15px 10px;
+        cursor: pointer;
+        background: none;
+        border: none;
+    }
+    .group-chat-top-bar-name-container {
+        float: left;
+        margin: 0px 25px;
+        width: max-content;
+        height: max-content;
+        position: relative;
+    }
+    .group-chat-top-bar-name {
+        color: white;
+        font-size: 20px;
+        background: none;
+        border: none;
+        padding: 0px;
+        height: 24px;
+        font-family: Calibri;  
+        transition: all 0.5s;
+        border-radius: 5px;
+        width: 100%;
+        position: absolute;
+    }
+    .group-chat-top-bar-name-hidden {
+        color: white;
+        font-size: 20px;
+        height: 24px;
+        font-family: Calibri;
+        min-width: 10px;
+        visibility: hidden;
+    }
+    .group-chat-top-bar-name:hover {
+        box-shadow: 0 0 0 2px white;
+    }
+    .group-chat-top-bar-name:focus {
+        box-shadow: 0 0 0 2px white;
+        background: #7EC8E3;
+    }
+    .group-chat-top-bar-add-friends {
+        float: right;
+        margin: 0px 25px;
+        color: white;
+        font-size: 20px;
+        cursor: pointer; 
+    }
+    .group-chat-side-bar-wrapper {
+        position: absolute;
+        right: 0px;
+        height: calc(100% - 40px);
+        width: 10vw;
+        background-color: #7EC8E3;
+    }
+    .group-chat-side-bar {
+        height: calc(100% - 40px);
+        font-family: Calibri;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+    .friends-nav-bar-burger {
+        display: none;
+    }
+    .friends-nav-bar-mobile {
+        display: none;
+    }
+    .add-friends-pop-up-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none;
+        width: 400px;
+        background: none;
+        border-radius: 25px;
+        box-shadow: 0 0 0 5px white;
+        padding: 25px;
+    }
+    .add-friends-pop-up {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column wrap;
+    }
+    .add-friends-msg {
+        font-family: Calibri;
+        color: pink;
+        margin-bottom: 15px;
+        float: left;    
+    }
+    .add-friends-input {
+        text-align: center;
+        width: 75%;
+        background: none;
+        border: 5px solid white;
+        color: #7EC8E3;
+        font-size: 28px;
+        font-weight: 600;
+        padding: 15px;
+        border-radius: 25px;
+    }
+    .add-friends-submit {
+        font-size: 28px;
+        font-weight: 600;
+        border: 5px solid white;
+        margin: 15px;
+    }
+    .settings-outer-container.open {
+        clip-path: circle(800px);
+        -webkit-clip-path: circle(1000px);
+    }
+    .settings-outer-container {
+        overflow: hidden;
+        top: 0;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: #050A30;
+        clip-path: circle(0px at 25% -10%);
+        -webkit-clip-path: circle(0px at 25% -10%);
+        transition: 1s ease-in-out;
+    }
+    .settings-inner-container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        font-family: Calibri;
+    }
+    .settings-title {
+        color: white;
+        font-size: 32px;
+        font-weight: 400;
+        padding-bottom: 30px;
+    }
+    .settings-close-button {
+        border: 2px solid whitesmoke;
+        border-radius: 50%;
+        color: white;
+        font-size: 28px;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        right: 15px;
+        top: 10px;
+        transition: all 1s ease;
+    }
+    .settings-close-button:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    .settings-container {
+        border-top: 1px solid #6a92a0;
+        border-bottom: 1px solid #6a92a0;
+        height: 100px;
+        width: 45%;
+        display: flex;
+        flex-flow: row wrap;
+        padding: 0px 15px;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .settings-description {
+        font-size: 18px;
+        color: #62a2ba;
+    }
+    .settings-action {
+        font-size: 18px;
+    }
+    .main-container {
+        position: absolute;
+        margin-left: 15vw;
+        width: calc(100% - 15vw);
+        height: calc(100% - 40px);
+    }
+    .group-chat-main-container {
+        position: absolute;
+        margin-left: 15vw;
+        margin-right: 10vw;
+        width: calc(100% - 25vw);
+        height: calc(100% - 40px);
+    }
+    .friends-nav-bar {
+        font-family: Calibri;
+        float: left;
+        width: 100%;
+        overflow: hidden;
+        padding: 5px 0px;
+    }
+    .friends-nav-bar-a {
+        margin: 25px;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;   
+    }
+    .friends-error-msg {
+        font-family: Calibri;
+        color: pink;
+        margin-top: 25px;
+        float: left;
+        width: 100%;
+    }
+    .friends-view {
+        margin-top: 40px;
+        padding: 25px; 
+        width: calc(100% - 50px);
+        height: calc(100% - 90px);
+    }
+    .friend {
+        padding: 25px;
+        border-top: 1px solid whitesmoke;
+        border-bottom: 1px solid whitesmoke;
+        width: 60%;
+        display: flex;
+        align-items: center;
+    }
+    .friend-name {
+        font-family: Calibri;
+        color: white;
+        font-size: 28px;
+    }
+    .friends-add {
+        display: none;
+        margin-top: 40px;
+        padding: 25px; 
+        width: calc(100% - 50px);
+        height: calc(100% - 90px);
+    }
+    .friend-requests {
+        display: none;
+        padding: 25px; 
+        width: calc(100% - 50px);
+        height: calc(100% - 90px);
+    }
+    .friend-request-form-input {
+        width: 50%;
+        background: none;
+        border: 5px solid white;
+        color: #7EC8E3;
+        font-size: 28px;
+        font-weight: 600;
+        padding: 15px;
+        border-radius: 25px;
+    }
+    .friend-error-msg {
+        font-family: Calibri;
+        color: pink;
+        margin-top: 25;
+        float: left;
+        width: 100%;
+    }
+    .btn-friend {
+        font-size: 28px;
+        font-weight: 600;
+        border: 5px solid white;
+        margin: 15px;
+    }
+    .request {
+        border-top: 1px solid #6a92a0;
+        border-bottom: 1px solid #6a92a0;
+        height: 100px;
+        width: 60%;
+        display: flex;
+        flex-flow: row wrap;
+        padding: 0px 15px;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .request-user {
+        color: white;
+        font-size: 28px;
+        font-family: Calibri;
+    }
+    .request-accept {
+        background: none;
+        border: 2px solid lightgreen;
+        border-radius: 5px;
+        color: lightgreen;
+        font-size: 24px;
+        transition: all 0.5s;
+    }
+    .request-accept:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+    .request-decline {
+        background: none;
+        border: 2px solid red;
+        border-radius: 5px;
+        color: red;
+        font-size: 24px;
+        transition: all 0.5s;
+    }
+    .request-decline:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+    .user-outer-container {
+        z-index: 1;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        height: 100px;
+        padding: 20px;
+        background-color: #7EC8E3;
+        border-radius: 25px;
+    }
+    .user-inner-container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-flow: column wrap;
+        font-family: Calibri;
+        font-size: 28px;
+        color: white;
+    }
+    .user-username {
+        font-weight: 600;
+    }
+    .user-message {
+        background: none;
+        border: 2px solid white;
+        border-radius: 5px;
+        color: white;
+        font-size: 24px;
+        transition: all 0.5s;
+    }
+    .user-message:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    .dm-top-bar {
+        font-family: Calibri;
+        float: left;
+        width: 100%;
+        overflow: hidden;
+        padding: 5px 0px;
+    }
+    .dm-top-bar-friend-name {
+        float: left;
+        margin: 0px 25px;
+        color: white;
+        font-size: 20px;
+        cursor: pointer; 
+    }
+    .dm-top-bar-friend-status {
+        float: left;
+        margin: 0px 25px;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    .dm-top-bar-friend-action {
+        float: right;
+        margin: 0px 25px;
+        color: white;
+        font-size: 20px;
+        cursor: pointer; 
+    }
+    .dm-message-container {
+        width: calc(100%);
+        height: calc(100% - 118px);
+        margin-top: 34.8px;
+        margin-bottom: 78px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .text-bar-container
+    {
+        position: absolute;
+        bottom: 0;
+        width: calc(100% - 46px);
+        margin: 0px 0px 20px 20px;
+    }
+    .text-bar
+    {
+      position: relative;
+      width: 100%;
+      height: 50px;
+      background-color: #050A30;
+      border: 3px solid #7EC8E3;
+      border-radius: 8px;
+      font-size: 20px;
+      color: #7EC8E3;
+    }
+    .text-bar:focus
+    {
+      outline: none;
+    }
+    .message-container {
+        width: calc(100% - 40px);
+        font-family: Calibri;
+        padding: 20px;
+    }
+    .message-sender {
+        color: white;
+        font-weight: 450;
+        font-size: 24px; 
+        display: inline;
+    }
+    .message-timestamp {
+        color: grey;
+        display: inline;
+        font-size: 12px;
+    }
+    .message-text {
+        color: #7EC8E3;
+        display: block;
+    }
+    #dm-message-container::-webkit-scrollbar 
+    {
+      width: 7px;
+      transition: all 0.5s;
+    }
+    #dm-message-container::-webkit-scrollbar-track 
+    {
+      background: #6a92a0;
+      border-radius: 5px;
+    }
+    #dm-message-container::-webkit-scrollbar-thumb 
+    {
+      background: #7EC8E3;
+      border-radius: 5px;
+    }
+    .member-outer-container {
+        width: 100%;
+        height: 80px;
+        border-bottom: 1px solid #6a92a0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    .member-inner-container {
+        padding: 25px 15px;
+    }
+    .member-name {
+        font-family: Calibri;
+        font-size: 28px;
+    }
+    .online {
+        color: white;
+    }
+    .offline {
+        color: #6a92a0;
+    }
+}

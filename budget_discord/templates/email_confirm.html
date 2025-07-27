@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <style>
+    .confirmation-form-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50%;
+    }
+    .confirmation-title {
+        font-family: Calibri;
+        font-size: 32px;
+        color: #7EC8E3;
+        margin-bottom: 30px;
+        border-bottom: 10px solid #000c66;
+        width: 50%;
+        float: left;
+        padding-bottom: 10px;
+    }
+    .confirmation-subtitle {
+        font-family: Calibri;
+        font-size: 24px;
+        color: #7EC8E3; 
+        width: 100%;
+        float: left;
+        padding-bottom: 10px;
+    }
+    .confirmation-error-msg {
+        font-family: Calibri;
+        color: pink;
+        margin-bottom: 15px;
+        float: left;
+    }
+    .confirmation-input-container {
+        border-bottom: 5px solid white;
+        margin-bottom: 30px;
+        width: 100%;
+        overflow: hidden;
+        font-size: 40px;
+        color: white;
+    }
+    .confirmation-input {
+        background: none;
+        border: none;
+        color: #7EC8E3; 
+        font-size: 18px;
+    }
+    .confirmation-input:focus {
+        outline: none;
+    }
+    ::placeholder {
+        color: #7EC8E3;
+    }
+    .confirmation-submit-button {
+        width: 100%;
+        font-size: 26px;
+        background: none;
+        border: 2px solid #4caf50;
+        color: white;
+        cursor: pointer;
+    }
+    .confirmation-submit-button:focus {
+        outline: none;
+    }
+    </style>
+    <div class="confirmation-form-container">
+        <div class="confirmation-title">Confirm your email</div>
+        {% if not msg %}
+            <div class="confirmation-subtitle">A 6 digit code has been sent to your email.</div>
+        {% else %}
+            <div class="confirmation-error-msg">{{msg}}</div>
+        {% endif %}
+        <form action="/email_confirm" method="POST">
+            {% csrf_token %}
+            <input name="username" type="hidden" value="{{username}}">
+            <input name="email" type="hidden" value="{{email}}">
+            <input style="display: none;" name="password" type="password" value="{{password}}">
+            <input name="code_id" type="hidden" value="{{code_id}}">
+            <div class="confirmation-input-container">
+                <input class="confirmation-input" autocomplete="off" autofocus name="code" type="text" placeholder="Enter code">
+            </div>
+            <button class="confirmation-submit-button">Register</button>
+        </form>
+    </div>
+{% endblock %}
