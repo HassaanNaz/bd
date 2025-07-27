@@ -1,6 +1,0 @@
-.env
-readme.md
-budget_discord/__pycache__
-budget_discord/migrations/__pycache__
-bd/__pycache__
-db.sqlite3
